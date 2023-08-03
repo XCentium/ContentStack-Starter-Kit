@@ -1,0 +1,22 @@
+query GetPostsPageQuery {
+  page: all_page_posts {
+    items {
+      title
+      subtitle
+      description
+      open_graph {
+        og_description
+        og_title
+      }
+    }
+  }
+  posts: all_page_post(limit: 5) {
+    items {
+      title
+      url
+      system {
+        created_at
+      }
+    }
+  }
+}

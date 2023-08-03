@@ -1,0 +1,47 @@
+.Wrapper {
+  @apply py-10;
+}
+
+.Container {
+  @apply mx-auto
+        flex
+        max-w-7xl
+        flex-row
+        items-center
+        justify-between
+        px-4
+        sm:px-6
+        lg:px-8;
+}
+
+.Left {
+  @apply flex
+         flex-row
+         items-center;
+}
+
+.Center {
+  @apply flex
+         flex-1
+         flex-row
+         items-center
+         sm:px-10
+         lg:px-12;
+}
+
+.Right {
+  @apply flex
+         flex-row
+         items-center;
+}
+
+.Navigation > a {
+  @apply inline-block
+         rounded-lg
+         px-2
+         py-1
+         text-sm
+         text-slate-700
+         hover:bg-slate-100
+         hover:text-slate-900;
+}

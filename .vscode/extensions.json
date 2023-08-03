@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "irongeek.vscode-env",
+    "graphql.vscode-graphql",
+    "wengerk.highlight-bad-chars",
+    "pkief.material-icon-theme",
+    "csstools.postcss",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
