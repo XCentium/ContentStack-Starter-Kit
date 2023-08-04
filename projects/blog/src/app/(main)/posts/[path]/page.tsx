@@ -19,22 +19,18 @@ export default async function Page({ params, searchParams }: Core.Page<{ path: s
     return notFound()
   }
 
-  const data = {
-    title: result.data.title,
-    description: result.data.description,
-    mdx: await serialize(result.data.body),
-  }
+  const mdx = await serialize(result.data.body)
 
   return (
     <div className="mx-auto mt-8 max-w-6xl">
-      <h1 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" {...tags(data, 'title')}>
-        {data.title}
+      <h1 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" {...tags(result.data, 'title')}>
+        {result.data.title}
       </h1>
-      <p className="mb-8" {...tags(data, 'description')}>
-        {data.description}
+      <p className="mb-8" {...tags(result.data, 'description')}>
+        {result.data.description}
       </p>
-      <div className="prose max-w-full border-t border-t-gray-300 pt-6" {...tags(data, 'body')}>
-        <MDXRemote mdx={data.mdx} />
+      <div className="prose max-w-full border-t border-t-gray-300 pt-6" {...tags(result.data, 'body')}>
+        <MDXRemote mdx={mdx} />
       </div>
     </div>
   )
