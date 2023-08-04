@@ -10,7 +10,7 @@ export default function Link({ data, ...props }: CustomHTMLAttributes & ModularB
   if (!data?.title || !data.href) return null
 
   return (
-    <Raw href={data.href} {...props} {...tags(data, 'href')}>
+    <Raw href={data.href} {...props} {...tags(data, 'title')}>
       {data.title}
     </Raw>
   )
