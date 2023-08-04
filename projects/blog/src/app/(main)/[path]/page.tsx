@@ -18,15 +18,10 @@ export default async function Page({ params, searchParams }: Core.Page<{ path: s
     return notFound()
   }
 
-  const data = {
-    title: result.data.title,
-    modular_blocks_main: result.data.modular_blocks_main,
-  }
-
   return (
     <>
       <Contentstack.ModularBlocks
-        entries={data.modular_blocks_main}
+        entries={result.data.modular_blocks_main}
         components={{
           hero_section: HeroSection,
         }}
