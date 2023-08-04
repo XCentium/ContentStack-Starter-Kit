@@ -17,14 +17,9 @@ export default async function Page({ searchParams }: Core.Page) {
     return notFound()
   }
 
-  const data = {
-    title: result.data.title,
-    hero_section: result.data.hero_section,
-  }
-
   return (
     <>
-      <HeroSection data={data.hero_section} />
+      <HeroSection data={result.data.hero_section} />
     </>
   )
 }
