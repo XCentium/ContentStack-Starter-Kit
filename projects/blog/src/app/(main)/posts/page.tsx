@@ -30,27 +30,20 @@ export default async function Page({}: Core.Page<{ path: string }>) {
     return notFound()
   }
 
-  const data = {
-    title: result.data.page.title,
-    subtitle: result.data.page.subtitle,
-    description: result.data.page.description,
-    posts: result.data.posts,
-  }
-
   return (
     <>
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-indigo-600">{data.subtitle}</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{data.title}</p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">{data.description}</p>
+            <h2 className="text-base font-semibold leading-7 text-indigo-600">{result.data.page.subtitle}</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{result.data.page.title}</p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">{result.data.page.description}</p>
           </div>
         </div>
       </div>
       <div className="mx-auto max-w-4xl">
         <ul role="list" className="divide-y divide-gray-100">
-          {data.posts.map((post) => (
+          {result.data.posts.map((post) => (
             <li key={post.url} className="flex items-center justify-between gap-x-6 py-5">
               <div className="min-w-0">
                 <div className="flex items-start gap-x-3">
