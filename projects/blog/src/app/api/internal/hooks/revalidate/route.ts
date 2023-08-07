@@ -20,9 +20,11 @@ export async function POST(request: Request) {
     logger.info('Internal API: Triggered static content regeneration')
   }
 
-  for (const item of items) {
-    revalidatePath(item.url)
-  }
+  // Routes: Dynamic
+  items.forEach((item) => revalidatePath(item.url))
+
+  // Routes: Static
+  revalidatePath('/sitemap.xml')
 
   return NextResponse.json(Result.success())
 }
