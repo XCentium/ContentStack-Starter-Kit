@@ -1,8 +1,6 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 import type Result from '@xc/lib/Result'
 
-import logger from '@xc/lib/logger/server'
-
 export type MetadataGenerator = (
   page: Core.Page,
   parent: ResolvingMetadata,
@@ -19,11 +17,7 @@ export default function createMetadataGenerator(
   return async (page: Core.Page, parent: ResolvingMetadata) => {
     const result = await generator(page, parent)
 
-    if (!result.ok || !result.data || !result.data.open_graph) {
-      logger.error(result, 'Metadata Generator')
-
-      return {}
-    }
+    if (!result.ok || !result.data?.open_graph) return {}
 
     return {
       title: result.data.title,
