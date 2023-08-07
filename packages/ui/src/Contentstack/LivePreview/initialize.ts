@@ -1,6 +1,6 @@
-import logger from '@xc/lib/logger/client'
-
 import LivePreviewUtils from '@contentstack/live-preview-utils'
+
+import logger from '@xc/lib/logger/client'
 
 export default function initialize() {
   const promise = LivePreviewUtils.init({
