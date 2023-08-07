@@ -7,10 +7,10 @@ const isObject = (value: any) => {
 }
 
 export default function tags(data: any, key: string) {
-  if (!livepreview || !isObject(data)) return {}
+  if (!livepreview) return {}
 
-  const $ = data['$']
-  const value = isObject($) ? $[key] : undefined
+  const $ = isObject(data) ? data['$'] : null
+  const value = isObject($) ? $[key] : null
 
   if (!isObject(value)) {
     logger.warn(`Contentstack Live Preview: No editable tags found for '${key}'`)
