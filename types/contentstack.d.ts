@@ -46,7 +46,7 @@ declare namespace Contentstack {
       file_size: string
       filename: string
       title: string
-      url: url
+      url: string
     }
 
     type Link = {
