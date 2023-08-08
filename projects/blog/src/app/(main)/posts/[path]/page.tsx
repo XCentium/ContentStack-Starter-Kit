@@ -1,16 +1,13 @@
 import { notFound } from 'next/navigation'
 import { serialize } from 'next-mdx-remote/serialize'
-import createMetadataGenerator from '@xc/lib/createMetadataGenerator'
-import { tags } from '@xc/ui/Contentstack'
 import getPostPage from '@xc/shared/data/blog/getPostPage'
+import { tags } from '@xc/ui/Contentstack'
 
 import MDXRemote from '@xc/ui/MDXRemote'
 
 export { dynamic, revalidate } from '@/ssr'
 
-export const generateMetadata = createMetadataGenerator(({ params }) => {
-  return getPostPage({ path: `/posts/${params.path}` })
-})
+export { generateMetadata } from '@xc/shared/data/blog/getPostPage'
 
 export default async function Page({ params, searchParams }: Core.Page<{ path: string }>) {
   const result = await getPostPage({ path: `/posts/${params.path}`, preview: searchParams })

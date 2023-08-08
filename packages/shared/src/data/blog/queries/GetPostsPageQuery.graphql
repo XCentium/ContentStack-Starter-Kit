@@ -4,10 +4,6 @@ query GetPostsPageQuery {
       title
       subtitle
       description
-      open_graph {
-        og_description
-        og_title
-      }
     }
   }
   posts: all_page_post(limit: 5) {

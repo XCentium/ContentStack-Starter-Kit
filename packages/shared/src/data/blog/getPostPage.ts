@@ -2,12 +2,15 @@ import type { LivePreviewQuery } from 'contentstack'
 
 import Result from '@xc/lib/Result'
 import { blog } from '@xc/shared/clients/contentstack'
+import createMetadataGenerator from '@xc/shared/data/createMetadataGenerator'
 
 export type PostPageData = Contentstack.Item<{
   description: string
   body: string
   open_graph: Contentstack.Globals.OpenGraph
 }>
+
+export const generateMetadata = createMetadataGenerator('page_post', blog.api)
 
 export default async function getPostPage({
   path,
