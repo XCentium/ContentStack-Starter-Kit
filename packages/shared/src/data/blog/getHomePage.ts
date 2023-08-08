@@ -9,7 +9,7 @@ export type HomePageData = Contentstack.Item<{
   open_graph: Contentstack.Globals.OpenGraph
 }>
 
-export const generateMetadata = createMetadataGenerator('page_home', '/', blog.api)
+export const generateMetadata = createMetadataGenerator('/', 'page_home', blog.api)
 
 export default async function getHomePage({ preview }: { preview?: LivePreviewQuery }): Promise<Result<HomePageData>> {
   const result = await blog.api.find<HomePageData>('page_home', preview, (query) => {

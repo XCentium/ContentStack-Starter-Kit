@@ -10,7 +10,7 @@ export type PostPageData = Contentstack.Item<{
   open_graph: Contentstack.Globals.OpenGraph
 }>
 
-export const generateMetadata = createMetadataGenerator('page_post', '/posts', blog.api)
+export const generateMetadata = createMetadataGenerator('/posts', 'page_post', blog.api)
 
 export default async function getPostPage({
   path,

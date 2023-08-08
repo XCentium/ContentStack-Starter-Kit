@@ -9,7 +9,7 @@ export type GenericPageData = Contentstack.Item<{
   open_graph: Contentstack.Globals.OpenGraph
 }>
 
-export const generateMetadata = createMetadataGenerator('page_generic', '', blog.api)
+export const generateMetadata = createMetadataGenerator('', 'page_generic', blog.api)
 
 export default async function getGenericPage({
   path,

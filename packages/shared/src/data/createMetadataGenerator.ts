@@ -4,8 +4,8 @@ import type { Contentstack } from '@xc/lib/contentstack'
 import logger from '@xc/lib/logger/server'
 
 export default function createMetadataGenerator(
-  type: string,
   path: string,
+  type: string,
   contentstack: Contentstack,
 ): (page: Core.Page, parent: ResolvingMetadata) => Promise<Metadata> {
   return async (page: Core.Page, parent: ResolvingMetadata) => {
