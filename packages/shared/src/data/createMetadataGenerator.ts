@@ -1,6 +1,8 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 import type { Contentstack } from '@xc/lib/contentstack'
 
+import logger from '@xc/lib/logger/server'
+
 export default function createMetadataGenerator(
   type: string,
   contentstack: Contentstack,
@@ -14,7 +16,11 @@ export default function createMetadataGenerator(
 
     const item = result.data?.shift()
 
-    if (!item?.open_graph) return {}
+    if (!item?.open_graph) {
+      logger.warn(`Metadata Generator: Could not find Open Graph data (Type: '${type}', Path: '${page.params.path}')`)
+
+      return {}
+    }
 
     return {
       title: item.title,
