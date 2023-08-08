@@ -15,7 +15,7 @@ export default function createMetadataGenerator(
       url = path ? `${path}/${page.params.path}` : `/${page.params.path}`
     }
 
-    const result = await contentstack.find<{ open_graph?: Record<string, string> }>(type, null, (query) => {
+    const result = await contentstack.find(type, null, (query) => {
       return query.where('url', url).only(['title', 'open_graph']).toJSON()
     })
 
