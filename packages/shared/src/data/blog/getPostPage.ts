@@ -20,7 +20,7 @@ export default async function getPostPage({
   preview?: LivePreviewQuery
 }): Promise<Result<PostPageData>> {
   const result = await blog.api.find<PostPageData>('page_post', preview, (query) => {
-    return query.where('url', path).toJSON()
+    return query.where('url', `/posts/${path}`).toJSON()
   })
 
   if (!result.ok) {
