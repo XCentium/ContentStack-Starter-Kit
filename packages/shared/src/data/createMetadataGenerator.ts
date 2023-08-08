@@ -5,11 +5,18 @@ import logger from '@xc/lib/logger/server'
 
 export default function createMetadataGenerator(
   type: string,
+  path: string,
   contentstack: Contentstack,
 ): (page: Core.Page, parent: ResolvingMetadata) => Promise<Metadata> {
   return async (page: Core.Page, parent: ResolvingMetadata) => {
+    let url = path
+
+    if (page.params.path) {
+      url = path ? `${path}/${page.params.path}` : `/${page.params.path}`
+    }
+
     const result = await contentstack.find<{ open_graph?: Record<string, string> }>(type, null, (query) => {
-      return query.where('url', `/${page.params.path}`).only(['title', 'open_graph']).toJSON()
+      return query.where('url', url).only(['title', 'open_graph']).toJSON()
     })
 
     if (!result.ok) return {}
