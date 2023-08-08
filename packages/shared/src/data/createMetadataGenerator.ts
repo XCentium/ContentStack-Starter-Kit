@@ -24,7 +24,7 @@ export default function createMetadataGenerator(
     const item = result.data?.shift()
 
     if (!item?.open_graph) {
-      logger.warn(`Metadata Generator: Could not find Open Graph data (Type: '${type}', Path: '${page.params.path}')`)
+      logger.warn(`Metadata Generator: Could not find Open Graph data (Type: '${type}', Path: '${url}')`)
 
       return {}
     }
