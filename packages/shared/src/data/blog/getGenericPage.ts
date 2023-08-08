@@ -19,7 +19,7 @@ export default async function getGenericPage({
   preview?: LivePreviewQuery
 }): Promise<Result<GenericPageData>> {
   const result = await blog.api.find<GenericPageData>('page_generic', preview, (query) => {
-    return query.where('url', path).toJSON()
+    return query.where('url', `/${path}`).toJSON()
   })
 
   if (!result.ok) {
