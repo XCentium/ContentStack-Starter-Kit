@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation'
-import getPostsPage from '@xc/shared/data/blog/getPostsPage'
+import getPostsPage, { generateMetadata } from '@xc/shared/data/blog/getPostsPage'
 
 import Link from 'next/link'
 
 export { dynamic, revalidate } from '@/ssr'
 
-export { generateMetadata } from '@xc/shared/data/blog/getPostsPage'
+export { generateMetadata }
 
 const toLocaleDateString = (value: string) => {
   const date = new Date(value)
