@@ -28,6 +28,7 @@ declare namespace NodeJS {
     readonly CONTENTSTACK_GRAPHQL_URL: string
     readonly CONTENTSTACK_DELIVERY_TOKEN: string
     readonly CONTENTSTACK_MANAGEMENT_TOKEN: string
+    readonly CONTENTSTACK_PREVIEW_TOKEN: string
     readonly NEXT_PUBLIC_CONTENTSTACK_LIVE_PREVIEW: string
     readonly NEXT_PUBLIC_CONTENTSTACK_ENVIRONMENT: string
     readonly NEXT_PUBLIC_CONTENTSTACK_API_KEY: string

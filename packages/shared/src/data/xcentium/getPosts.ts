@@ -6,9 +6,10 @@ export type PostData = Contentstack.Item<{
   url: string
   created_at: string
 }>
+export const CONTENT_TYPE = 'page_post';
 
 export default async function getPosts(): Promise<Result<PostData[]>> {
-  const result = await createClient().api.find<PostData>('page_post', null, (query) => {
+  const result = await createClient().api.find<PostData>(CONTENT_TYPE, null, (query) => {
     return query.only(['title', 'url', 'created_at']).limit(10).toJSON()
   })
 

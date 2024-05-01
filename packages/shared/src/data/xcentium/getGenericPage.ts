@@ -9,7 +9,9 @@ export type GenericPageData = Contentstack.Item<{
   open_graph: Contentstack.Globals.OpenGraph
 }>
 
-export const generateMetadata = createMetadataGenerator('', 'page_generic', createClient().api)
+export const CONTENT_TYPE = 'page_generic';
+
+export const generateMetadata = createMetadataGenerator('', CONTENT_TYPE, createClient().api)
 
 export default async function getGenericPage({
   path,
@@ -18,7 +20,7 @@ export default async function getGenericPage({
   path: string
   preview?: LivePreviewQuery
 }): Promise<Result<GenericPageData>> {
-  const result = await createClient().api.find<GenericPageData>('page_generic', preview, (query) => {
+  const result = await createClient().api.find<GenericPageData>(CONTENT_TYPE, preview, (query) => {
     return query.where('url', `/${path}`).toJSON()
   })
 

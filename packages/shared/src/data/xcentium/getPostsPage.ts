@@ -20,7 +20,9 @@ export type PostsPageData = {
   ]
 }
 
-export const generateMetadata = createMetadataGenerator('/posts', 'page_posts', createClient().api)
+export const CONTENT_TYPE = 'page_posts';
+
+export const generateMetadata = createMetadataGenerator('/posts', CONTENT_TYPE, createClient().api)
 
 export default async function getPostsPage(): Promise<Result<PostsPageData>> {
   const response = await createClient().gql.query({

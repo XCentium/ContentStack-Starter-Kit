@@ -10,8 +10,10 @@ export type RootLayoutData = Contentstack.Item<{
   }[]
 }>
 
+export const CONTENT_TYPE = 'layout_root';
+
 export default async function getRootLayout(): Promise<Result<RootLayoutData>> {
-  const result = await createClient().api.find<RootLayoutData>('layout_root', null, (query) => {
+  const result = await createClient().api.find<RootLayoutData>(CONTENT_TYPE, null, (query) => {
     return query.toJSON()
   })
 

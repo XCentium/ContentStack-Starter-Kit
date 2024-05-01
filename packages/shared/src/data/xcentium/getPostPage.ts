@@ -10,7 +10,9 @@ export type PostPageData = Contentstack.Item<{
   open_graph: Contentstack.Globals.OpenGraph
 }>
 
-export const generateMetadata = createMetadataGenerator('/posts', 'page_post', createClient().api)
+export const CONTENT_TYPE = 'page_post';
+
+export const generateMetadata = createMetadataGenerator('/posts', CONTENT_TYPE, createClient().api)
 
 export default async function getPostPage({
   path,
@@ -19,7 +21,7 @@ export default async function getPostPage({
   path: string
   preview?: LivePreviewQuery
 }): Promise<Result<PostPageData>> {
-  const result = await createClient().api.find<PostPageData>('page_post', preview, (query) => {
+  const result = await createClient().api.find<PostPageData>(CONTENT_TYPE, preview, (query) => {
     return query.where('url', `/posts/${path}`).toJSON()
   })
 
