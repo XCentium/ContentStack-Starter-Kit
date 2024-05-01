@@ -9,7 +9,14 @@ export { dynamic, revalidate } from '@/ssr'
 export { generateMetadata }
 
 export default async function Page({ params, searchParams }: Core.Page<{ path: string }>) {
-  const result = await getGenericPage({ ...params, preview: { ...searchParams } })
+  const result = await getGenericPage({
+    type: 'page_generic',
+    path: params.path,
+    preview: searchParams,
+    builder(query) {
+      return query
+    },
+  })
 
   if (!result.ok || !result.data) {
     return notFound()
